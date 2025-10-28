@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎁 Tap to Open Surprise</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      height: 100%; width: 100%;
+      background: radial-gradient(circle at center, #ffe6f2 0%, #ffb3da 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #7a0045;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    .gift {
+      font-size: 4rem;
+      cursor: pointer;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+    p {
+      font-size: 1rem;
+      color: #7a0045;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes bounce {
+      0%,100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <h1>Hey Minnie 💖</h1>
+    <div class="gift" id="gift">🎁</div>
+    <p>Tap to open your surprise</p>
+  </div>
+
+  <script>
+    const gift = document.getElementById('gift');
+    const container = document.getElementById('container');
+
+    gift.addEventListener('click', () => {
+      container.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "index.html"; // redirect to your main page
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
