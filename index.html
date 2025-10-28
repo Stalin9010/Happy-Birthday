@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Minnie</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body data-theme="dreamy">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">♡</div>
+      <div class="brand-text">
+        <div class="title">The Universe Wrote Your Name</div>
+        <div class="subtitle">A surprise for <span id="name-head">Minnie</span></div>
+      </div>
+    </div>
+
+    <nav class="theme-controls" aria-label="Theme selector">
+      <button class="theme-btn active" data-theme="dreamy">Dreamy</button>
+      <button class="theme-btn" data-theme="starry">Starry</button>
+      <button class="theme-btn" data-theme="elegant">Elegant</button>
+      <button class="theme-btn" data-theme="fantasy">Fantasy</button>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <!-- canvas container (animations render here) -->
+      <div id="canvasContainer" class="canvas-container"></div>
+
+      <!-- overlay content -->
+      <div class="hero-overlay">
+        <div id="typewriter" class="typewriter" aria-live="polite"></div>
+        <h1 id="mainTitle" class="main-title"> HAPPY HAPPIER AND HAPPIEST BIRTHDAY <br><span id="name-main">Minnie</span> 💎</h1>
+      </div>
+    </section>
+ <div class="card actions-card">
+          <button id="celebrateBtn" class="btn">Celebrate 🎉</button>
+        </div>
+    <section class="content">
+      <div class="left-col">
+        <div class="card gallery-card">
+          <h3>Memories — Gallery</h3>
+          <div id="gallery" class="gallery" aria-live="polite"></div>
+        </div>
+
+        <div class="card videos-card">
+          <h3>Special Moments — Videos</h3>
+          <div id="videos" class="videos"></div>
+        </div>
+      </div>
+
+      <aside class="right-col">
+        <div class="card poem-card">
+          <h3>Poem for <span id="name-poem">Minnie</span></h3>
+          <p id="poem">MAY YOUR PATH BE GOLDEN,<br>YOUR HEART STAY LIGHT, <br>YOUR BIRTHDAY BE MAGICAL,<br>MORNING TO NIGHT❤️.</p>
+        </div>
+
+        <div class="card wishes-card">
+          <h3>Wishes</h3>
+          <ul id="wishes" class="wishes"></ul>
+        </div>
+
+       
+      </aside>
+    </section>
+
+    <footer class="footer">Made with ♥ — edit <code>script.js</code> to change the name, photo URLs and videos.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

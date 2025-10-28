@@ -1,0 +1,271 @@
+:root {
+  --transition: 420ms cubic-bezier(.2, .9, .3, 1);
+  --radius: 12px;
+}
+
+/* Theme variables */
+body[data-theme='dreamy'] { --bg1: #fff6fb; --bg2: #ffeef8; --text: #4a1830; --accent: #ff7fbf; --card-bg: rgba(255, 255, 255, 0.95); }
+body[data-theme='starry'] { --bg1: #050217; --bg2: #0b0830; --text: #f3e9ff; --accent: #9ae8ff; --card-bg: rgba(8, 6, 20, 0.6); }
+body[data-theme='elegant'] { --bg1: #fffaf8; --bg2: #fff6f3; --text: #261219; --accent: #d6a9b6; --card-bg: rgba(255, 255, 255, 0.95); }
+body[data-theme='fantasy'] { --bg1: #f6fbff; --bg2: #eef8ff; --text: #132033; --accent: #a48bff; --card-bg: rgba(255, 255, 255, 0.95); }
+
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', system-ui, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+.brand-text .title { font-weight: 700; }
+.subtitle { font-size: 13px; color: rgba(0, 0, 0, 0.45); }
+
+/* Theme controls */
+.theme-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.theme-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.theme-btn.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Hero section */
+.main {
+  max-width: 1100px;
+  margin: 8px auto;
+  padding: 8px;
+}
+.hero {
+  position: relative;
+  height: 420px;
+  border-radius: 14px;
+  margin: 0 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.canvas-container { position: absolute; inset: 0; z-index: 1; transition: opacity 360ms ease; }
+.hero-overlay { position: relative; z-index: 3; text-align: center; padding: 12px; }
+.typewriter {
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: var(--transition);
+}
+.main-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.6rem;
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: var(--transition);
+}
+.main-title.show { opacity: 1; transform: none; }
+.show-type { opacity: 1; transform: none; }
+
+/* Layout columns */
+.content {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+}
+.left-col { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+.right-col { width: 320px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; }
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(4px);
+}
+body[data-theme='starry'] .card { color: var(--text); }
+
+/* ---------- Gallery Section ---------- */
+.gallery-section {
+  text-align: center;
+  margin: 50px auto;
+  width: 95%;
+  max-width: 1200px;
+}
+.gallery-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+}
+
+/* ---------- Videos Section ---------- */
+.videos-section {
+  text-align: center;
+  margin: 60px auto;
+  width: 95%;
+  max-width: 1000px;
+}
+.videos-section h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.videos video {
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.videos video:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+}
+
+/* Wishes */
+.wishes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wishes li {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.85));
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.btn.ghost { background: transparent; border: 1px solid rgba(0, 0, 0, 0.08); color: var(--text); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 18px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* Fade helper for smoother theme change */
+.fade-out { opacity: 0; transition: opacity 380ms ease; }
+.fade-in { opacity: 1; transition: opacity 380ms ease; }
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.95;
+  border-radius: 3px;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .content { flex-direction: column; }
+  .right-col { width: 100%; }
+  .gallery img { height: 220px; }
+  .videos video { height: 220px; }
+  .hero { height: 320px; }
+  .main-title { font-size: 2rem; }
+}
+@media (max-width: 560px) {
+  .main-title { font-size: 1.6rem; }
+  .gallery img { height: 200px; }
+  .videos video { height: 200px; }
+}
+/* ---------- Fade-In on Scroll Animations ---------- */
+.fade-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
